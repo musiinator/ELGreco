@@ -45,6 +45,21 @@ public class KitchenGUIController {
         //starting thread for adding data to kitchenOrderList
         addOrders.setDaemon(true);
         addOrders.start();
+
+        cook.setDisable(true);
+        ready.setDisable(true);
+
+        kitchenOrdersList.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                cook.setDisable(false);
+                ready.setDisable(false);
+            }
+            else{
+                cook.setDisable(true);
+                ready.setDisable(true);
+            }
+        });
+
         //Controller for Cook Button
         cook.setOnAction(event -> {
             selectedOrder = kitchenOrdersList.getSelectionModel().getSelectedItem();

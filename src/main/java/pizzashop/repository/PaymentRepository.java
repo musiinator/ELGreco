@@ -4,12 +4,15 @@ import pizzashop.model.Payment;
 import pizzashop.model.PaymentType;
 
 import java.io.*;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
-public class PaymentRepository {
-    private static String filename = "data/payments.txt";
+public class PaymentRepository implements IPaymentRepository{
+    private static final String filename = "data/payments.txt";
     private List<Payment> paymentList;
 
     public PaymentRepository(){
@@ -17,20 +20,19 @@ public class PaymentRepository {
         readPayments();
     }
 
-    private void readPayments(){
-        //ClassLoader classLoader = PaymentRepository.class.getClassLoader();
-        File file = new File(filename);
-        BufferedReader br = null;
+    private void readPayments() {
+        ClassLoader classLoader = PaymentRepository.class.getClassLoader();
         try {
-            br = new BufferedReader(new FileReader(file));
-            String line = null;
-            while((line=br.readLine())!=null){
-                Payment payment=getPayment(line);
-                paymentList.add(payment);
+            File file = new File(URLDecoder.decode(Objects.requireNonNull(classLoader.getResource(filename)).getFile(), StandardCharsets.UTF_8.name()));
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            while ((line = br.readLine()) != null) {
+                Payment payment = getPayment(line);
+                if (payment != null) {
+                    paymentList.add(payment);
+                }
             }
             br.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -47,21 +49,23 @@ public class PaymentRepository {
         return item;
     }
 
+    @Override
     public void add(Payment payment){
         paymentList.add(payment);
         writeAll();
     }
 
+    @Override
     public List<Payment> getAll(){
         return paymentList;
     }
 
+    @Override
     public void writeAll(){
-        //ClassLoader classLoader = PaymentRepository.class.getClassLoader();
-        File file = new File(filename);
-
-        BufferedWriter bw = null;
+        ClassLoader classLoader = PaymentRepository.class.getClassLoader();
+        BufferedWriter bw;
         try {
+            File file = new File(URLDecoder.decode(Objects.requireNonNull(classLoader.getResource(filename)).getFile(), StandardCharsets.UTF_8.name()));
             bw = new BufferedWriter(new FileWriter(file));
             for (Payment p:paymentList) {
                 System.out.println(p.toString());

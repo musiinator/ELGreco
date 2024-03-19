@@ -1,0 +1,16 @@
+4,Cash,21.97
+1,Card,18.6
+3,Cash,70.3
+8,Cash,14.6
+5,Card,36.0
+3,Card,89.0
+3,Card,109.0
+6,Cash,54.0
+1,Card,44.5
+5,Cash,34.0
+1,Card,91.0
+1,Card,48.0
+1,Cash,58.0
+1,Card,58.0
+1,Card,13.0
+1,Card,15.5

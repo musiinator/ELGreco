@@ -1,0 +1,9 @@
+Hawaii,15.50
+Margherita,13.00
+Funghi,18.50
+Capricciosa,18.00
+Quattro Stagioni,17.00
+Marinara,15.00
+Calzone,16.00
+Rucola,15.5
+Napolitana,15.00
