@@ -15,3 +15,11 @@
 2,Card,11.5
 1,Cash,13.0
 1,Card,0.0
+-1,Card,10.0
+1,Card,-10.0
+0,Card,10.0
+9,Card,0.0
+-1,Card,10.0
+1,Card,-10.0
+0,Card,10.0
+9,Card,0.0
