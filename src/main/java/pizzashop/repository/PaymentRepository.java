@@ -13,7 +13,7 @@ public class PaymentRepository {
     private List<Payment> paymentList;
 
     public PaymentRepository(){
-        this.paymentList = new ArrayList<>();
+        this.paymentList = null;
         readPayments();
     }
 
@@ -37,6 +37,7 @@ public class PaymentRepository {
     }
 
     private Payment getPayment(String line){
+        if (paymentList == null) return null;
         Payment item=null;
         if (line==null|| line.equals("")) return null;
         StringTokenizer st=new StringTokenizer(line, ",");
@@ -48,6 +49,7 @@ public class PaymentRepository {
     }
 
     public void add(Payment payment){
+        if (paymentList==null) paymentList = new ArrayList<>();
         paymentList.add(payment);
         writeAll();
     }
@@ -57,6 +59,7 @@ public class PaymentRepository {
     }
 
     public void writeAll(){
+        if (paymentList == null) return;
         ClassLoader classLoader = PaymentRepository.class.getClassLoader();
         File file = new File(filename);
 

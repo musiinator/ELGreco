@@ -24,7 +24,7 @@ class ServiceTest_F02 {
         MenuRepository repoMenu = new MenuRepository();
         PaymentRepository payRepo = new PaymentRepository();
         pizzaService = new PizzaService(repoMenu, payRepo);
-        pizzaService.getPayments().clear();
+//        pizzaService.getPayments().clear();
 
         payments = new ArrayList<>();
         payments.add(new Payment(1, PaymentType.Card, 15.25));
@@ -61,5 +61,18 @@ class ServiceTest_F02 {
         } catch (NullPointerException | IllegalArgumentException e) {
             assert (true);
         }
+    }
+
+    @Test
+    void TC3() {
+        assertEquals(pizzaService.getTotalAmount(PaymentType.Cash), 0);
+    }
+
+    @Test
+    void TC4() {
+        Payment p = payments.get(0);
+        pizzaService.addPayment(p.getTableNumber(), p.getType(), p.getAmount());
+        pizzaService.getPayments().clear();
+        assertEquals(pizzaService.getTotalAmount(PaymentType.Cash), 0);
     }
 }
