@@ -15,7 +15,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class RepositoryIsolationTest {
+public class RepositoryIsolationTest {
 
     PaymentRepository repository;
 

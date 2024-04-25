@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class ServiceIsolationTest {
+public class ServiceIsolationTest {
 
     @Mock
     private PaymentRepository payRepo;

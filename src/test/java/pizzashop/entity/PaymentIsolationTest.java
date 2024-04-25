@@ -7,7 +7,7 @@ import pizzashop.model.PaymentType;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class PaymentIsolationTest {
+public class PaymentIsolationTest {
 
     Payment payment;
     @BeforeEach
