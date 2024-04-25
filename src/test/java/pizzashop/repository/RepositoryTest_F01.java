@@ -10,7 +10,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class RepositoryTest_F01 {
+public class RepositoryTest_F01 {
     private static List<Payment> payments;
     private static PaymentRepository paymentRepository;
 
@@ -32,7 +32,7 @@ class RepositoryTest_F01 {
 
     @AfterAll
     @Timeout(1000)
-    static void tearDown() {
+    public static void tearDown() {
         paymentRepository.writeAll();
     }
 
@@ -40,7 +40,7 @@ class RepositoryTest_F01 {
     @DisplayName("BVA_TEST_1")
     @Tag("ECP")
     @Test
-    void TC1() {
+    public void TC1() {
         Payment payment = payments.get(0);
         paymentRepository.add(payment);
         assertEquals(paymentRepository.getAll().get(paymentRepository.getAll().size()-1), payment);
@@ -51,7 +51,7 @@ class RepositoryTest_F01 {
     @DisplayName("BVA_TEST_2")
     @Tag("ECP")
     @Test
-    void TC2() {
+    public void TC2() {
         Payment payment = payments.get(1);
         paymentRepository.add(payment);
         assertEquals(paymentRepository.getAll().get(paymentRepository.getAll().size()-1), payment);
@@ -62,7 +62,7 @@ class RepositoryTest_F01 {
     @DisplayName("BVA_TEST_3")
     @Tag("ECP")
     @Test
-    void TC3() {
+    public void TC3() {
         Payment payment = payments.get(2);
         try{
             paymentRepository.add(payment);
@@ -76,7 +76,7 @@ class RepositoryTest_F01 {
     @DisplayName("BVA_TEST_4")
     @Tag("ECP")
     @Test
-    void TC4() {
+    public void TC4() {
         Payment payment = payments.get(3);
         try{
             paymentRepository.add(payment);
@@ -90,7 +90,7 @@ class RepositoryTest_F01 {
     @DisplayName("BVA_TEST_5")
     @Tag("BVA")
     @Test
-    void TC5() {
+    public void TC5() {
         Payment payment = payments.get(4);
         paymentRepository.add(payment);
         assertEquals(paymentRepository.getAll().get(paymentRepository.getAll().size()-1), payment);
@@ -101,7 +101,7 @@ class RepositoryTest_F01 {
     @DisplayName("BVA_TEST_6")
     @Tag("BVA")
     @Test
-    void TC6() {
+    public void TC6() {
         Payment payment = payments.get(5);
         paymentRepository.add(payment);
         assertEquals(paymentRepository.getAll().get(paymentRepository.getAll().size()-1), payment);
@@ -112,7 +112,7 @@ class RepositoryTest_F01 {
     @DisplayName("BVA_TEST_7")
     @Tag("BVA")
     @Test
-    void TC7() {
+    public void TC7() {
         Payment payment = payments.get(6);
         try{
             paymentRepository.add(payment);
@@ -126,7 +126,7 @@ class RepositoryTest_F01 {
     @DisplayName("BVA_TEST_8")
     @Tag("BVA")
     @Test
-    void TC8() {
+    public void TC8() {
         Payment payment = payments.get(7);
         try{
             paymentRepository.add(payment);
@@ -138,7 +138,7 @@ class RepositoryTest_F01 {
 
     @Disabled
     @Test
-    void TC9() {
+    public void TC9() {
         assert(false);
     }
 }
