@@ -1,4 +1,4 @@
-package pizzashop.integration.step1;
+package pizzashop.entity;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
